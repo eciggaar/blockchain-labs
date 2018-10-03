@@ -1,0 +1,18 @@
+version: '2'
+services:
+  ca:
+    container_name: ca.example.com
+    extends:
+      file: ../../../shared/base.yml
+      service: ca
+    environment:
+      - FABRIC_CA_SERVER_CA_NAME=ca.example.com
+      - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.example.com-cert.pem
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/7d521526f0f7f08773422163b7b87d56cbe7742b6cdfb13dcd66f14638723703_sk
+      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.example.com-cert.pem
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/7d521526f0f7f08773422163b7b87d56cbe7742b6cdfb13dcd66f14638723703_sk
+    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    volumes:
+      - ./:/etc/hyperledger/fabric-ca-server-config
+    ports:
+      - 9054:7054

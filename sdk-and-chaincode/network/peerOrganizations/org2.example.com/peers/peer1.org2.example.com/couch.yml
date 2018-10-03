@@ -1,0 +1,12 @@
+version: '2'
+services:
+  couch:
+    container_name: couch.peer1.org2.example.com
+    image: hyperledger/fabric-couchdb
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+#    ports:
+#      - 5984:5984 # TODO: use counter to allow multiple couchdb instances on one machine

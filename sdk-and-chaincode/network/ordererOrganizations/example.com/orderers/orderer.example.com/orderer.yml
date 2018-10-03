@@ -1,0 +1,18 @@
+version: '2'
+services:
+  orderer:
+    container_name: orderer.example.com
+    extends:
+      file: ../../../../shared/base.yml
+      service: orderer
+    environment:
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+    working_dir: /fabric
+    command: orderer
+    volumes:
+      - ../../../../shared/channel-artifacts/:/artifacts
+      - ./msp:/crypto/msp
+      - ./tls:/crypto/tls
+#      - ./data:/var/hyperledger/production
+    ports:
+      - 7050:7050

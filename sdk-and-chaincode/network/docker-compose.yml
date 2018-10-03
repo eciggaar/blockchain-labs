@@ -1,0 +1,57 @@
+version: '2'
+services:
+### Orderers
+  orderer.example.com:
+    extends:
+      file: ./ordererOrganizations/example.com/orderers/orderer.example.com/orderer.yml
+      service: orderer
+
+### Org1MSP
+  ca.org1.example.com:
+    extends:
+      file: ./peerOrganizations/org1.example.com/ca/ca.yml
+      service: ca
+  peer0.org1.example.com:
+    extends:
+      file: ./peerOrganizations/org1.example.com/peers/peer0.org1.example.com/peer.yml
+      service: peer
+  couch.peer0.org1.example.com:
+    extends:
+      file: ./peerOrganizations/org1.example.com/peers/peer0.org1.example.com/couch.yml
+      service: couch
+  peer1.org1.example.com:
+    extends:
+      file: ./peerOrganizations/org1.example.com/peers/peer1.org1.example.com/peer.yml
+      service: peer
+  couch.peer1.org1.example.com:
+    extends:
+      file: ./peerOrganizations/org1.example.com/peers/peer1.org1.example.com/couch.yml
+      service: couch
+
+### Org2MSP
+  ca.org2.example.com:
+    extends:
+      file: ./peerOrganizations/org2.example.com/ca/ca.yml
+      service: ca
+  peer0.org2.example.com:
+    extends:
+      file: ./peerOrganizations/org2.example.com/peers/peer0.org2.example.com/peer.yml
+      service: peer
+  couch.peer0.org2.example.com:
+    extends:
+      file: ./peerOrganizations/org2.example.com/peers/peer0.org2.example.com/couch.yml
+      service: couch
+  peer1.org2.example.com:
+    extends:
+      file: ./peerOrganizations/org2.example.com/peers/peer1.org2.example.com/peer.yml
+      service: peer
+  couch.peer1.org2.example.com:
+    extends:
+      file: ./peerOrganizations/org2.example.com/peers/peer1.org2.example.com/couch.yml
+      service: couch
+
+networks:
+  default:
+    external:
+      name: SampleConsortium
+

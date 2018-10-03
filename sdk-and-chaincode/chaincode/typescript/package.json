@@ -1,0 +1,21 @@
+{
+  "name": "marbles",
+  "version": "1.0.0",
+  "description": "marbles chaincode implemented in node.js",
+  "engines": {
+    "node": ">=8.4.0",
+    "npm": ">=5.3.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engine-strict": true,
+  "engineStrict": true,
+  "license": "Apache-2.0",
+  "dependencies": {
+    "fabric-shim": "1.1.0-snapshot.9",
+    "ts-node": "3.3.0",
+    "typescript": "2.6.2",
+    "@types/node": "8.5.2"
+  }
+}

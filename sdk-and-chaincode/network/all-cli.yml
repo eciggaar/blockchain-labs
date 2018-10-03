@@ -1,0 +1,25 @@
+version: '2'
+services:
+# The cli container container connects to the peer. We use this because we need to have go installed in order to compile
+# the chaincode.
+  cli-peer0.org1.example.com:
+    extends:
+      file: ./peerOrganizations/org1.example.com/peers/peer0.org1.example.com/cli.yml
+      service: cli
+  cli-peer1.org1.example.com:
+    extends:
+      file: ./peerOrganizations/org1.example.com/peers/peer1.org1.example.com/cli.yml
+      service: cli
+  cli-peer0.org2.example.com:
+    extends:
+      file: ./peerOrganizations/org2.example.com/peers/peer0.org2.example.com/cli.yml
+      service: cli
+  cli-peer1.org2.example.com:
+    extends:
+      file: ./peerOrganizations/org2.example.com/peers/peer1.org2.example.com/cli.yml
+      service: cli
+
+networks:
+  default:
+    external:
+      name: SampleConsortium

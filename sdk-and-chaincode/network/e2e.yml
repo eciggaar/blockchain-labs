@@ -1,0 +1,26 @@
+version: '2'
+services:
+  util:
+    image: docker
+    command: sh -c './scripts/script.sh'
+    working_dir: /fabric
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./shared/scripts:/fabric/scripts/
+      - ./shared/channel-artifacts:/fabric/channel-artifacts
+    environment:
+      - CORE_PEER_TLS_ENABLED=true
+      - ORDERER_CA=/artifacts/orderer-tlsca.pem
+      - CHANNEL_TX=/artifacts/channel.tx
+      - ORG1_MSP=Org1MSP
+      - ORG2_MSP=Org2MSP
+      - ORDERER_ADDRESS=orderer.example.com:7050
+      - PEER0=peer0.org1.example.com
+      - PEER1=peer1.org1.example.com
+      - PEER2=peer0.org2.example.com
+      - PEER3=peer1.org2.example.com
+
+networks:
+  default:
+    external:
+      name: SampleConsortium

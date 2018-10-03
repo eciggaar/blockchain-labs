@@ -1,0 +1,30 @@
+{
+  "name": "ninja-app",
+  "version": "1.0.0",
+  "description": "Example application for Ninja lab",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "cd network && docker-compose pull",
+    "startHLF": "docker network create SampleConsortium 2>/dev/null; cd network && docker-compose up; cd .. && npm run tearDownHLF",
+    "tearDownHLF": "rm -rf /tmp/hfc-kvs /tmp/hfc-cvs; cd network && docker-compose down; cd .. && npm run clean",
+    "clean": "docker rm -f -v $(docker ps -a | grep 'dev-' | awk '{print $1}') 2>/dev/null; docker rmi $(docker images | grep 'dev-' | awk '{print $1}') 2>/dev/null; true",
+    "clean-docker": "docker rm -f `docker ps -aq`",
+    "startApp": "HFC_LOGGING='{\"crit\":\"console\"}' node index.js",
+    "debugApp": "HFC_LOGGING='{\"debug\":\"console\"}' node index.js"
+  },
+  "author": "Arne Rutjes",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git@github.ibm.com:CICBlockchain/ninja-course.git"
+  },
+  "dependencies": {
+    "fabric-ca-client": "1.2.2",
+    "fabric-client": "1.2.2",
+    "ts-node": "7.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "10.10.1",
+    "typescript": "3.0.3"
+  }
+}
