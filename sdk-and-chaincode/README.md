@@ -1,8 +1,8 @@
 ## Introduction  
 This is a minimal implementation of a TypeScript NodeJS app using the fabric-client. Two labs are included to help you get familiar with writing your own Fabric applications;
 
-- [SDK](./labs/1-SDK.md)
-- [Chaincode](./labs/2-chaincode.md)
+- [__SDK__](./labs/1-SDK.md)
+- [__Chaincode__](./labs/2-chaincode.md)
 
 ## To run
 First, start the blockchain with `npm run startHLF`.
@@ -10,8 +10,8 @@ First, start the blockchain with `npm run startHLF`.
 Run the app with `npm run startApp` or `node index.js`. It calls `app.ts`, which ties everything together. This allow us to use TypeScript without transpiling as a separate build step.  
 
 ## Flow
-The app instantiates an instance of the client sdk, which gets its settings from `network/connectionprofile.localhost.org1.yaml`. Then it uses 
-the ChannelWrapper (`channel-wrapper.ts`) to create and join a channel. ChaincodeWrapper (`chaincode-wrapper.ts`) provides a wrapper to 
+The app instantiates an instance of the client sdk, which gets its settings from `network/connectionprofile.localhost.org1.yaml`. Then it uses
+the ChannelWrapper (`channel-wrapper.ts`) to create and join a channel. ChaincodeWrapper (`chaincode-wrapper.ts`) provides a wrapper to
 common chaincode functions like install, instantiate, upgrade and of course invoke and query.
 
 ## Troubleshooting
