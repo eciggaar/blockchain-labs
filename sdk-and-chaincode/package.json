@@ -4,7 +4,6 @@
   "description": "Example application for Ninja lab",
   "main": "index.js",
   "scripts": {
-    "postinstall": "cd network && docker-compose pull",
     "startHLF": "docker network create SampleConsortium 2>/dev/null; cd network && docker-compose up; cd .. && npm run tearDownHLF",
     "tearDownHLF": "rm -rf /tmp/hfc-kvs /tmp/hfc-cvs; cd network && docker-compose down; cd .. && npm run clean",
     "clean": "docker rm -f -v $(docker ps -a | grep 'dev-' | awk '{print $1}') 2>/dev/null; docker rmi $(docker images | grep 'dev-' | awk '{print $1}') 2>/dev/null; true",
