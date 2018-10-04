@@ -1,5 +1,5 @@
 # Blockchain Labs
-These labs are initially created by the [IBM Client Innovation Center Groningen](https://benelux.ciceurope.com). All kudos to them and a big thank you for allowing me to share them with you.
+These labs are initially created by the [IBM Client Innovation Center](https://benelux.ciceurope.com) Groningen. All kudos to them and a big thank you for allowing me to share them.
 
 ## Contents  
 - [**asset-lifecycle**](./asset-lifecycle/README.md): an example of channels using the CLI.

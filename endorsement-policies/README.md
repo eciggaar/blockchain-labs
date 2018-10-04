@@ -30,7 +30,7 @@ By default the chaincode is instantiated with the following endorsement policy:
 ```
 This means that only signature is required from one of the two members. As we have only one organization defined in our set-up, this will always work.
 
-**Note:** This is not a recommended policy for production scenarios.
+> This is not a recommended policy for production scenarios.
 
 Imagine we change the policy to request a signature from both a member of `Org1` and `Org2`. This would cause the transaction proposal to fail, because we do not have two organizations defined.
 
