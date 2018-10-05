@@ -11,7 +11,7 @@ Amongst cloning the samples to the `fabric-samples` directory on your local disk
 In the `fabric-samples` folder, change directory to the `fabcar` folder and have a closer look at the `startFabric.sh` script to understand what actually is happening when you run the script.
 ```
 cd ./fabric-samples/fabcar
-less startFabric.sh
+less startFabric.sh node
 ```
 Next, run the script. Wait until it completes and run `npm install` to install the dependencies.
 ```
