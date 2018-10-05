@@ -3,8 +3,8 @@ These labs are initially created by the [IBM Client Innovation Center](https://b
 
 ## Contents  
 - [**asset-lifecycle**](./asset-lifecycle/README.md): an example of channels using the CLI.
-- [**sdk-and-chaincode**](./sdk-and-chaincode/README.md): a minimal NodeJS app with SDK and chaincode labs.
 - [**endorsement-policies**](./endorsement-policies/README.md): get familiar with endorsement policies using the default fabcar sample.
+- [**sdk-and-chaincode**](./sdk-and-chaincode/README.md): a minimal NodeJS app with SDK and chaincode labs. _**[under construction]**_
 
 ## Get started
 Clone this repository:  
