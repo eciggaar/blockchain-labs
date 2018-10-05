@@ -45,7 +45,7 @@ docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/g
 ```
 where `1.1` is the new version that is instantiated. Now upgrade the existing chaincode to the new version by running:
 ```
-docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode upgrade -o orderer.example.com:7050 -C mychannel -n fabcar -l "$LANGUAGE" -c '{"Args":[""]}' -P "OR ('Org1MSP.member','Org2MSP.member')" -v 1.1
+docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode upgrade -o orderer.example.com:7050 -C mychannel -n fabcar -l "$LANGUAGE" -c '{"Args":[""]}' -P "AND ('Org1MSP.member','Org2MSP.member')" -v 1.1
 ```
 In the above command, the `-P` parameter sets the new endorsement policy to:
 ```
