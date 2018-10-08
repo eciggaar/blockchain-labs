@@ -123,7 +123,7 @@ It will pull all th docker images needed to execute the demo.
 ```
 docker-compose up -d
 ```
-3.	Wait few seconds and then run in the same tab: 
+3.	Wait few seconds and then run in the same tab:
 ```
 docker exec -it cli bash
 ```
@@ -197,7 +197,7 @@ The following script will remove all the containers related to Hyperledger Fabri
 Run with:
 ```
 ./scripts/clean.sh
-``` 
+```
 ## Demo step-by-step
 
 **Note:** Each command is preceded by a line of configuration with contains the credentials of each peer executing the specific operation.
@@ -257,10 +257,10 @@ Invoke to update available quantity of asset on the `sharing` channel (peer0):
 ### Get all the assets
 Query to retrieve all the assets on the `sharing` channel (peer3):
 ```
-./scripts/script.sh query 3 sharing sharing-cc getAllAssets available
+./scripts/script.sh invoke 3 sharing sharing-cc getAllAssets available
 ```
 
 ## Troubleshooting
 - Do NOT use the docker detachment mode (`-d`) together with `--force recreate`. So go only for `docker-compose up -d` and use the `./scripts/clean.sh` to clean your environment.
 - If you see './scripts/script.sh: line 219: peer: command not found' this probably means you're running the script from outside of the container. First run `docker exec -it cli bash` and start the script from in there.
-- While running `./scripts/script.sh init` inside the `cli` container you get `Error endorsing chaincode: rpc error: code = Unknown desc = Error starting container: API error (404): {"message":"network assetlifecycle_default not found"}` and your `dev-` container stopped. More likely is due to a wrong configuration if the `CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE` variable. Go to `network/base/peer-base.yaml` and be sure to have `- CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ROOTFOLDER_default`, where `ROOTFOLDER` is the name of your main directory, e.g. `asset-lifecycle` in case you cloned directly with git. 
+- While running `./scripts/script.sh init` inside the `cli` container you get `Error endorsing chaincode: rpc error: code = Unknown desc = Error starting container: API error (404): {"message":"network assetlifecycle_default not found"}` and your `dev-` container stopped. More likely is due to a wrong configuration if the `CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE` variable. Go to `network/base/peer-base.yaml` and be sure to have `- CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=ROOTFOLDER_default`, where `ROOTFOLDER` is the name of your main directory, e.g. `asset-lifecycle` in case you cloned directly with git.

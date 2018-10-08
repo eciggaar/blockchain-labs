@@ -16,12 +16,10 @@ HELP="List of available commands:
     instantiateChaincode [PEER_NR] [CHANNEL] [CHAINCODE]        Instantiate [CHAINCODE] on peer [PEER_NR] in [CHANNEL] channel
     query [PEER_NR] [CHANNEL] [CHAINCODE] [KEY]                 Query by [KEY] on [CHANNEL] and [CHAINCODE] with [PEER_NR]
     invoke [PEER_NR] [CHANNEL] [CHAINCODE] [FUNCTION] [ARGS]    Invoke [FUNCTION] with [ARGS] on [CHANNEL] and [CHAINCODE] with [PEER_NR]
-    
 "
 
 listFunctions () {
   FUNCTIONS="List of available functions per chaincode:
-  
     chaincode: private-cc
 
     issueAsset [JSON]                                                           Create a new asset [JSON] and set the status to ISSUED
@@ -40,7 +38,7 @@ listFunctions () {
     updateAsset [ASSET_ID] [ASSET_QUANTITY]                                     Update the quantity availability [ASSET_QUANTITY] of an asset [ASSET_ID]
     getAllAssets available                                                      Return all the available assets for trading
     "
-    
+
     echo "$FUNCTIONS"
 }
 
@@ -382,7 +380,7 @@ case $1 in
         echo "$HELP"
         exit 1
     fi
-    chaincodeInvoke $2 $3 $4 $5 ${@:5}
+    chaincodeInvoke $2 $3 $4 ${@:5}
     ;;
 *)
     echo "$HELP"
